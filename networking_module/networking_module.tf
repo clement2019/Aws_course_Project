@@ -1,4 +1,6 @@
 
+
+
 module "shared_vars"{
 source = "../shared_vars"
 
@@ -65,4 +67,12 @@ resource "aws_security_group" "privatesg" {
   }
   
 
+}
+output "publicsg_id" {
+  value = "${aws_security_group.publicsg.id}"
+  
+}
+output "privatesg_id" {
+  value = "${aws_security_group.privatesg.id}"
+  
 }

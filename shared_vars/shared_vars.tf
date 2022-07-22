@@ -3,11 +3,14 @@
 output "vpcid" {
   value="${local.vpcid}"
 }
-output "public_vpcid" {
-  value="${local.public_vpcid}"
+output "publicsubnetid1" {
+  value="${local.publicsubnetid1}"
 }
-output "private_vpcid" {
-  value="${local.private_vpcid}"
+output "publicsubnetid2" {
+  value="${local.publicsubnetid2}"
+}
+output "privatesubnetid" {
+  value="${local.privatesubnetid}"
 }
 
 output "env_suffix" {
@@ -27,15 +30,23 @@ locals {
 vpcid="${lookup(local.vpcid_env,local.env)}"
 
 
-publicsubnetid_env ={
+publicsubnetid1_env ={
 
  default="subnet-98dba5e2"
  stagging="subnet-98dba5e2"
  production="subnet-98dba5e2"
 
 }
-public_vpcid="${lookup(local.publicsubnetid_env,local.env)}"
+publicsubnetid1="${lookup(local.publicsubnetid1_env,local.env)}"
 
+publicsubnetid2_env ={
+
+ default="subnet-b34974da"
+ stagging="subnet-b34974da"
+ production="subnet-b34974da"
+
+}
+publicsubnetid2="${lookup(local.publicsubnetid2_env,local.env)}"
 
 privatesubnetid_env ={
 
@@ -44,6 +55,6 @@ privatesubnetid_env ={
  production="subnet-4356da0f"
 
 }
-private_vpcid="${lookup(local.privatesubnetid_env ,local.env)}"
+privatesubnetid="${lookup(local.privatesubnetid_env ,local.env)}"
 
 }
